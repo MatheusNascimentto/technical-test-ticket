@@ -11,30 +11,30 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface PessoaService {
+public class PessoaService {
 
 
     @Autowired
-    PessoaRepository repository = null;
+    private PessoaRepository repository;
 
-    public default Pessoa findById(Long id) {
+    public Pessoa findById(Long id) {
         Optional<Pessoa> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Pessoa.class.getName()));
     }
 
-    public default List<Pessoa> findAll() {
+    public List<Pessoa> findAll() {
         return repository.findAll();
     }
 
 
-    public default Pessoa create(Pessoa obj) {
+    public Pessoa create(Pessoa obj) {
         obj.setId(null);
         return repository.save(obj);
 
     }
 
-    public default Pessoa update(Long id, PessoaDTO objDto) {
+    public Pessoa update(Long id, PessoaDTO objDto) {
         Pessoa obj = findById(id);
         obj.setNome(objDto.getNome());
         obj.setCpf(objDto.getCpf());
@@ -44,7 +44,7 @@ public interface PessoaService {
         return repository.save(obj);
     }
 
-    public default void delete(Long id) {
+    public void delete(Long id) {
         Pessoa obj = findById(id);
         repository.delete(obj);
     }

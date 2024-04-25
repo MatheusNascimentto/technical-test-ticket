@@ -1,11 +1,13 @@
 package com.manager.user.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.manager.user.domain.Endereco;
 import com.manager.user.domain.Pessoa;
 import jakarta.persistence.Embedded;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class PessoaDTO implements Serializable {
@@ -18,7 +20,9 @@ public class PessoaDTO implements Serializable {
     private String nome;
 
     private String cpf;
-    private Date dataNascimento;
+
+    @JsonFormat(pattern="dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+    private LocalDate dataNascimento;
     @Embedded
     private Endereco endereco;
 
@@ -61,11 +65,11 @@ public class PessoaDTO implements Serializable {
         this.cpf = cpf;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

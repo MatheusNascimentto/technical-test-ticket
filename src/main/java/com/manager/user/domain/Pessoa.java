@@ -1,22 +1,38 @@
 package com.manager.user.domain;
 
-import jakarta.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-public class Pessoa {
+public class Pessoa implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Length(min =3, max = 200, message = "O Campo Nome deve ter entre 3 e 200 caracteres!")
     private String nome;
     private String cpf;
-    private Date dataNascimento;
+
+    @JsonFormat(pattern="dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+    private LocalDate dataNascimento;
+
+    @Embedded
     private Endereco endereco;
 
     public Pessoa() {
     }
 
-    public Pessoa(Long id, String nome, String cpf, Date dataNascimento, Endereco endereco) {
+    public Pessoa(Long id, String nome, String cpf, LocalDate dataNascimento, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -48,11 +64,11 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
