@@ -30,8 +30,8 @@ public class Pessoa implements Serializable {
     @Embedded
     private Endereco endereco;
 
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Boleto> boletos;
+    //@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+   // private List<Boleto> boletos;
 
     public Pessoa() {
     }
@@ -42,15 +42,6 @@ public class Pessoa implements Serializable {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
-        this.boletos = boletos;
-    }
-
-    public List<Boleto> getBoletos() {
-        return boletos;
-    }
-
-    public void setBoletos(List<Boleto> boletos) {
-        this.boletos = boletos;
     }
 
     public Long getId() {

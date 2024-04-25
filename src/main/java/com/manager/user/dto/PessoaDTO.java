@@ -29,8 +29,8 @@ public class PessoaDTO implements Serializable {
     @Embedded
     private Endereco endereco;
 
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Boleto> boletos;
+    //@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    //private List<Boleto> boletos;
 
     public PessoaDTO() {
         super();
@@ -43,7 +43,6 @@ public class PessoaDTO implements Serializable {
         this.cpf = obj.getCpf();
         this.dataNascimento = obj.getDataNascimento();
         this.endereco = obj.getEndereco();
-        this.boletos = obj.getBoletos();
     }
 
     public Long getId() {

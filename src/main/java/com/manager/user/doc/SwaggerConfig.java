@@ -24,7 +24,7 @@ public class SwaggerConfig {
                                 .bearerFormat("JWT")))
                 .info(new Info()
                         .title("API RISING")
-                        .description("API de gerenciamento de academias")
+                        .description("API de gerenciamento")
                         .contact(new Contact()
                                 .name("Matheus Nascimento")
                                 .email("ma_eduard@hotmail.com"))
