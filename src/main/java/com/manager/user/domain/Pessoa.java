@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.Length;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -29,15 +30,27 @@ public class Pessoa implements Serializable {
     @Embedded
     private Endereco endereco;
 
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private List<Boleto> boletos;
+
     public Pessoa() {
     }
 
-    public Pessoa(Long id, String nome, String cpf, LocalDate dataNascimento, Endereco endereco) {
+    public Pessoa(Long id, String nome, String cpf, LocalDate dataNascimento, Endereco endereco, List<Boleto> boletos) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
+        this.boletos = boletos;
+    }
+
+    public List<Boleto> getBoletos() {
+        return boletos;
+    }
+
+    public void setBoletos(List<Boleto> boletos) {
+        this.boletos = boletos;
     }
 
     public Long getId() {
