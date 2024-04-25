@@ -33,6 +33,19 @@ Acessar Swagger: http://localhost:8080/swagger-ui
 
 ## Banco de dados já esta populado para teste
 
+```bash
+
+#Executar o Banco de Dados
+
+Dentro do projeto em "resource" tem 2 properties a mais um "application-test.properties" para banco H2
+e o outro e "application-dev.properties" para o MySQL. Ambos com Banco populado.
+
+no "application.properties" principal esta as configs do banco H2 que fica mais facil para rodar e acessar a URL no navegador.
+caso preferir e so mudar as configs para o MYSQL e abrir o banco pela sua maquina.
+
+
+```
+
 
 # Tecnologias utilizadas
 

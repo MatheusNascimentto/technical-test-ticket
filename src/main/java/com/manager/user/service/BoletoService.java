@@ -3,7 +3,6 @@ package com.manager.user.service;
 import com.manager.user.domain.Boleto;
 import com.manager.user.domain.Pessoa;
 import com.manager.user.dto.BoletoDTO;
-import com.manager.user.dto.PessoaDTO;
 import com.manager.user.repository.BoletoRepository;
 import com.manager.user.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
