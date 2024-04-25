@@ -5,9 +5,6 @@ MySQL, Banco H2, Java,e diversas bibliotecas
 Nele é possivel gerenciar informações de pessoas e boletos, cadastrar pessoas , cadastrar Boletos,
 realizar pagamentos de boletos, editar/deletar/atualizar (Pessoas e Boletos)...
 
-## Introdução
-
-
 ## Como executar o projeto
 
 Pré-requisitos:
@@ -21,9 +18,13 @@ Pré-requisitos:
 ```bash
 
 #Executar o projeto
+Certifique-se de ter os requisitos instalado em sua máquina.
 
+Clone este repositório para sua máquina local usando o seguinte comando:
+#git clone https://github.com/MatheusNascimentto/manager-test-technician.git
 
-O arquivo do postman esta fixado no projeto para utilizar.
+Verificar se todas as dependencias Maven estao corretas, verificar banco de dados.
+Navegue até o diretório do serviço e execute.
 
 Porta da web : http://localhost:8080
 Acessar Swagger: http://localhost:8080/swagger-ui
@@ -32,6 +33,8 @@ Acessar Swagger: http://localhost:8080/swagger-ui
 ```
 
 ## Banco de dados já esta populado para teste
+
+### O arquivo do postman esta fixado no projeto para utilizar.
 
 ```bash
 

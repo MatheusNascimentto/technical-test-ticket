@@ -1,12 +1,9 @@
 package com.manager.user.controller;
 
 import com.manager.user.domain.Boleto;
-import com.manager.user.domain.Pessoa;
 import com.manager.user.domain.RealizaPagamentoBoleto;
 import com.manager.user.dto.BoletoDTO;
-import com.manager.user.dto.PessoaDTO;
 import com.manager.user.service.BoletoService;
-import com.manager.user.service.PessoaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
