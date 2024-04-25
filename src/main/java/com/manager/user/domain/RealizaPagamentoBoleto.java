@@ -3,7 +3,6 @@ package com.manager.user.domain;
 public class RealizaPagamentoBoleto {
 
     private String mensagem;
-    //private boolean pagamentoEfetuado;
 
     public RealizaPagamentoBoleto() {
     }
