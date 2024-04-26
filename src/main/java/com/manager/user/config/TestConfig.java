@@ -9,13 +9,10 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 @Profile("test")
 public class TestConfig {
-
     @Autowired
     private DBservice dbService;
-
     @Bean
     public void instanciaBaseDeDados() {
         this.dbService.instanciaBaseDeDados();
     }
-
 }

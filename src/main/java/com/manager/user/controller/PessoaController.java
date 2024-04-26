@@ -2,13 +2,12 @@ package com.manager.user.controller;
 
 import com.manager.user.domain.Pessoa;
 import com.manager.user.dto.PessoaDTO;
+import com.manager.user.feign.PessoaFeignClient;
 import com.manager.user.service.PessoaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +19,10 @@ public class PessoaController {
 
     @Autowired
     private PessoaService pessoaService;
+
+    @Autowired
+    private PessoaFeignClient pessoaClient;
+
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Pessoa> findById(@PathVariable Long id) {
@@ -36,9 +39,9 @@ public class PessoaController {
 
     @PostMapping
     public ResponseEntity<Pessoa> create(@Valid @RequestBody Pessoa obj) {
-        obj= pessoaService.create(obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+        obj = pessoaService.create(obj);
+        URI location = URI.create("/pessoa/" + obj.getId());
+        return ResponseEntity.created(location).body(obj);
     }
 
     @PutMapping(value = "/{id}")
@@ -52,5 +55,4 @@ public class PessoaController {
         pessoaService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }

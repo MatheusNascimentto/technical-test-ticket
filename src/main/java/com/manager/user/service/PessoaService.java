@@ -12,8 +12,6 @@ import java.util.Optional;
 
 @Service
 public class PessoaService {
-
-
     @Autowired
     private PessoaRepository repository;
 
@@ -26,7 +24,6 @@ public class PessoaService {
     public List<Pessoa> findAll() {
         return repository.findAll();
     }
-
 
     public Pessoa create(Pessoa obj) {
         obj.setId(null);
@@ -43,11 +40,9 @@ public class PessoaService {
 
         return repository.save(obj);
     }
-
     public void delete(Long id) {
         Pessoa obj = findById(id);
         repository.delete(obj);
     }
-
 
 }

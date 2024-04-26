@@ -4,10 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
-
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -29,9 +27,6 @@ public class Pessoa implements Serializable {
 
     @Embedded
     private Endereco endereco;
-
-    //@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-   // private List<Boleto> boletos;
 
     public Pessoa() {
     }

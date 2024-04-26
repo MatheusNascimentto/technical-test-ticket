@@ -1,17 +1,13 @@
 package com.manager.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.manager.user.domain.Boleto;
 import com.manager.user.domain.Endereco;
 import com.manager.user.domain.Pessoa;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
-import jakarta.persistence.OneToMany;
 import org.hibernate.validator.constraints.Length;
-
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Objects;
 
 public class PessoaDTO implements Serializable {
 
@@ -29,9 +25,6 @@ public class PessoaDTO implements Serializable {
     @Embedded
     private Endereco endereco;
 
-    //@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    //private List<Boleto> boletos;
-
     public PessoaDTO() {
         super();
     }
@@ -43,6 +36,16 @@ public class PessoaDTO implements Serializable {
         this.cpf = obj.getCpf();
         this.dataNascimento = obj.getDataNascimento();
         this.endereco = obj.getEndereco();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        PessoaDTO pessoaDTO = (PessoaDTO) obj;
+        return Objects.equals(id, pessoaDTO.id) &&
+                Objects.equals(nome, pessoaDTO.nome) &&
+                Objects.equals(cpf, pessoaDTO.cpf);
     }
 
     public Long getId() {

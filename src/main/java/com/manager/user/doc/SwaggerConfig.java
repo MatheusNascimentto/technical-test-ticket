@@ -3,8 +3,6 @@ package com.manager.user.doc;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
-
-
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -23,7 +21,7 @@ public class SwaggerConfig {
                                 .scheme("bearer")
                                 .bearerFormat("JWT")))
                 .info(new Info()
-                        .title("API RISING")
+                        .title("API")
                         .description("API de gerenciamento")
                         .contact(new Contact()
                                 .name("Matheus Nascimento")

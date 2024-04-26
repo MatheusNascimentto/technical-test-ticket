@@ -10,13 +10,10 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 @Profile("dev")
 public class DevConfig {
-
     @Autowired
     private DBservice dbService;
-
     @Value("$(spring.jpa.hibernate.ddl-auto)")
     private String strategy;
-
     @Bean
     public boolean instanciaBaseDeDados() {
         if(strategy.equals("create")) {
@@ -24,5 +21,4 @@ public class DevConfig {
         }
         return false;
     }
-
 }

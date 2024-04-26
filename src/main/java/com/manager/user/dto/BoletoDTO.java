@@ -5,9 +5,9 @@ import com.manager.user.domain.Boleto;
 import com.manager.user.domain.Pessoa;
 import com.manager.user.domain.StatusBoleto;
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class BoletoDTO implements Serializable {
 
@@ -42,6 +42,20 @@ public class BoletoDTO implements Serializable {
         this.dataPagamento = obj.getDataPagamento();
         this.status = obj.getStatus();
         this.pessoa = obj.getPessoa();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        BoletoDTO boletoDTO = (BoletoDTO) obj;
+        return Objects.equals(id, boletoDTO.id) &&
+                Objects.equals(valor, boletoDTO.valor) &&
+                Objects.equals(valorPago, boletoDTO.valorPago) &&
+                Objects.equals(dataPagamento, boletoDTO.dataPagamento) &&
+                Objects.equals(dataVencimento, boletoDTO.dataVencimento) &&
+                Objects.equals(status, boletoDTO.status) &&
+                Objects.equals(pessoa, boletoDTO.pessoa);
     }
 
     public Long getId() {
