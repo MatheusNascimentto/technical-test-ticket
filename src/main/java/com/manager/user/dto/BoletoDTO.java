@@ -2,7 +2,6 @@ package com.manager.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.manager.user.domain.Boleto;
-import com.manager.user.domain.Pessoa;
 import com.manager.user.domain.StatusBoleto;
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -27,9 +26,7 @@ public class BoletoDTO implements Serializable {
     private LocalDate dataPagamento;
     private StatusBoleto status;
 
-    @ManyToOne
-    @JoinColumn(name = "pessoa_id")
-    private Pessoa pessoa;
+    private Long pessoaId;
 
     public BoletoDTO() {
     }
@@ -41,7 +38,7 @@ public class BoletoDTO implements Serializable {
         this.dataVencimento = obj.getDataVencimento();
         this.dataPagamento = obj.getDataPagamento();
         this.status = obj.getStatus();
-        this.pessoa = obj.getPessoa();
+        this.pessoaId = obj.getPessoaId();
     }
 
     @Override
@@ -55,7 +52,7 @@ public class BoletoDTO implements Serializable {
                 Objects.equals(dataPagamento, boletoDTO.dataPagamento) &&
                 Objects.equals(dataVencimento, boletoDTO.dataVencimento) &&
                 Objects.equals(status, boletoDTO.status) &&
-                Objects.equals(pessoa, boletoDTO.pessoa);
+                Objects.equals(pessoaId, boletoDTO.pessoaId);
     }
 
     public Long getId() {
@@ -106,11 +103,11 @@ public class BoletoDTO implements Serializable {
         this.status = status;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 }

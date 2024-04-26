@@ -1,7 +1,6 @@
 package com.manager.user.service;
 
 import com.manager.user.domain.Boleto;
-import com.manager.user.domain.Pessoa;
 import com.manager.user.domain.RealizaPagamentoBoleto;
 import com.manager.user.domain.StatusBoleto;
 import com.manager.user.dto.BoletoDTO;
@@ -14,16 +13,24 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class BoletoService {
 
     @Autowired
     private BoletoRepository repository;
 
+    public List<BoletoDTO> findByIdPessoa(Long id) {
+        List<Boleto> obj = repository.findByPessoaId(id);
+        return obj.stream().map(o -> new BoletoDTO(o)).toList();
+
+    }
+
     public Boleto findById(Long id) {
         Optional<Boleto> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado! Id: " + id + ", Tipo: " + Pessoa.class.getName()));
+                "Objeto não encontrado! Id: " + id));
     }
 
     public List<Boleto> findAll() {
@@ -44,7 +51,7 @@ public class BoletoService {
         obj.setDataPagamento(objDto.getDataPagamento());
         obj.setDataVencimento(objDto.getDataVencimento());
         obj.setStatus(objDto.getStatus());
-        obj.setPessoa(objDto.getPessoa());
+        obj.setPessoaId(objDto.getPessoaId());
 
         return repository.save(obj);
     }

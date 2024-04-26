@@ -1,7 +1,6 @@
 package com.manager.user.controller;
 
 import com.manager.user.domain.Boleto;
-import com.manager.user.domain.Pessoa;
 import com.manager.user.domain.RealizaPagamentoBoleto;
 import com.manager.user.domain.StatusBoleto;
 import com.manager.user.dto.BoletoDTO;

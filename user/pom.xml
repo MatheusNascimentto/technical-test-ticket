@@ -11,7 +11,7 @@
 	<groupId>com.manager</groupId>
 	<artifactId>user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>boleto</name>
+	<name>user</name>
 	<description>gerenciar informações de pessoas e boletos</description>
 	<properties>
 		<java.version>17</java.version>

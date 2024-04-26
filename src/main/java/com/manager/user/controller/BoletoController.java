@@ -22,6 +22,12 @@ public class BoletoController {
     @Autowired
     private BoletoService boletoService;
 
+    @GetMapping(value = "/pessoa/{id}")
+    public ResponseEntity<List<BoletoDTO>> findByIdPessoa(@PathVariable Long id) {
+        List<BoletoDTO> obj = boletoService.findByIdPessoa(id);
+        return ResponseEntity.ok().body(obj);
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<Boleto> findById(@PathVariable Long id) {
         Boleto obj = boletoService.findById(id);

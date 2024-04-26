@@ -24,21 +24,19 @@ public class Boleto implements Serializable {
     private LocalDate dataPagamento;
     private StatusBoleto status;
 
-    @ManyToOne
-    @JoinColumn(name = "pessoa_id")
-    private Pessoa pessoa;
+    private Long pessoaId;
 
     public Boleto() {
     }
 
-    public Boleto(Long id, double valor, double valorPago, LocalDate dataVencimento, LocalDate dataPagamento, StatusBoleto status, Pessoa pessoa) {
+    public Boleto(Long id, double valor, double valorPago, LocalDate dataVencimento, LocalDate dataPagamento, StatusBoleto status, Long pessoaId) {
         this.id = id;
         this.valor = valor;
         this.valorPago = valorPago;
         this.dataVencimento = dataVencimento;
         this.dataPagamento = dataPagamento;
         this.status = status;
-        this.pessoa = pessoa;
+        this.pessoaId = pessoaId;
     }
 
     public Long getId() {
@@ -89,11 +87,11 @@ public class Boleto implements Serializable {
         this.status = status;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Long getPessoaId() {
+        return pessoaId;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setPessoaId(Long pessoaId) {
+        this.pessoaId = pessoaId;
     }
 }
