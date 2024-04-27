@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "de1624c8-1a5a-4bb0-bfb2-8123e39c67e0",
+		"name": "Gerenciador-test-tecnico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21093246"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Cadastro de pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"id\": 3,\r\n     \"nome\": \"Jose Pedro\",\r\n     \"cpf\": \"cpf\",\r\n     \"dataNascimento\": \"01/05/2001\",\r\n      \"endereco\" : {\r\n        \"rua\": \"Rua Cabral\",\r\n        \"cidade\" : \"Capao Bonito\",\r\n        \"estado\": \"SaoPaulo\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todas pessoas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar pessoa ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Pessoa",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"id\": 1,\r\n     \"nome\": \"Marcelo queiroz\",\r\n     \"cpf\": \"cpf\",\r\n     \"dataNascimento\": \"01/05/2001\",\r\n      \"endereco\" : {\r\n        \"rua\": \"Rua Silva\",\r\n        \"cidade\" : \"Capao Bonito\",\r\n        \"estado\": \"SaoPaulo\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pessoa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar uma pessoa por ID e obter boletos por ID pessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/boleto/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"boleto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Boleto",
+			"item": [
+				{
+					"name": "Listar todos boletos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8065/boleto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8065",
+							"path": [
+								"boleto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Boletos ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8065/boleto/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8065",
+							"path": [
+								"boleto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Boleto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8065/boleto/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8065",
+							"path": [
+								"boleto",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar boleto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\":3,\r\n   \"valor\":\"100.0\",\r\n   \"valorPago\":\"100.0\",\r\n   \"dataVencimento\":\"01/05/2001\",\r\n   \"dataPagamento\":\"01/05/2001\",\r\n   \"status\":\"PENDENTE\",\r\n   \"pessoaId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8065/boleto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8065",
+							"path": [
+								"boleto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Boleto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\":2,\r\n   \"valor\":\"100.0\",\r\n   \"valorPago\":\"100.0\",\r\n   \"dataVencimento\":\"01/05/2001\",\r\n   \"dataPagamento\":\"01/05/2001\",\r\n   \"status\":\"PAGO\",\r\n   \"pessoa\":{\r\n      \"id\":1,\r\n      \"nome\":\"Jose Cacete\",\r\n      \"cpf\":\"cpf\",\r\n      \"dataNascimento\":\"01/05/2001\",\r\n      \"endereco\":{\r\n         \"rua\":\"Rua Silva\",\r\n         \"cidade\":\"Capao Bonito\",\r\n         \"estado\":\"Sao Paulo\"\r\n      }\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8065/boleto/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8065",
+							"path": [
+								"boleto",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Realizar pagamento Boleto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8065/boleto/pagamento/2?valorPago=100.0&dataPagamento=2024-04-24",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8065",
+							"path": [
+								"boleto",
+								"pagamento",
+								"2"
+							],
+							"query": [
+								{
+									"key": "valorPago",
+									"value": "100.0"
+								},
+								{
+									"key": "dataPagamento",
+									"value": "2024-04-24"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
