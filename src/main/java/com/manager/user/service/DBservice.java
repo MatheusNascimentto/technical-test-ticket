@@ -33,7 +33,7 @@ public class DBservice implements CommandLineRunner {
         b1.setDataPagamento(localDateBoleto);
 
         Boleto b2 = new Boleto();
-        b2.setPessoaId(1L);
+        b2.setPessoaId(2L);
         b2.setStatus(PENDENTE);
         b2.setValorPago(200.00);
         b2.setValor(200.00);
@@ -60,7 +60,7 @@ public class DBservice implements CommandLineRunner {
         b1.setDataPagamento(localDateBoleto);
 
         Boleto b2 = new Boleto();
-        b1.setPessoaId(1L);
+        b1.setPessoaId(2L);
         b2.setStatus(PENDENTE);
         b2.setValorPago(200.00);
         b2.setValor(200.00);
