@@ -5,6 +5,7 @@ import com.manager.user.domain.RealizaPagamentoBoleto;
 import com.manager.user.domain.StatusBoleto;
 import com.manager.user.dto.BoletoDTO;
 import com.manager.user.repository.BoletoRepository;
+import com.manager.user.service.exception.NaoAutorizadoExcecao;
 import com.manager.user.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -13,7 +13,6 @@ Pré-requisitos:
 * Intellij (IDE que foi utilizada para codar).
 * Controle de versão GIT instalado na sua máquina.
 * Banco MySQL
-* Banco H2 usada para TEST acessaar(http://localhost:8080/h2-console)
 
 ```bash
 
@@ -21,13 +20,13 @@ Pré-requisitos:
 Certifique-se de ter os requisitos instalado em sua máquina.
 
 Clone este repositório para sua máquina local usando o seguinte comando:
-#git clone https://github.com/MatheusNascimentto/manager-test-technician.git
+#git clone "url_do_repositorio"
 
 Verificar se todas as dependencias Maven estao corretas, verificar banco de dados.
 Navegue até o diretório do serviço e execute.
 
-Porta da web : http://localhost:8080
-Acessar Swagger: http://localhost:8080/swagger-ui
+Porta da web : http://localhost:8065
+Acessar Swagger: http://localhost:8065/swagger-ui
 
 
 ```
@@ -39,17 +38,11 @@ Acessar Swagger: http://localhost:8080/swagger-ui
 ```bash
 
 #Executar o Banco de Dados
-
-Dentro do projeto em "resource" tem 2 properties a mais um "application-test.properties" para banco H2
-e o outro e "application-dev.properties" para o MySQL. Ambos com Banco populado.
-
-no "application.properties" principal esta as configs do banco H2 que fica mais facil para rodar e acessar a URL no navegador.
-caso preferir e so mudar as configs para o MYSQL e abrir o banco pela sua maquina.
+No "application.properties" principal esta as configs do banco MYSQL, Porta: localhost:3306.
+verificar usuario e senha para rodar banco na sua maquina localmente.
 
 
 ```
-
-
 # Tecnologias utilizadas
 
 ## Back End
@@ -60,6 +53,8 @@ caso preferir e so mudar as configs para o MYSQL e abrir o banco pela sua maquin
 -Maven
 -Lombok
 -SpringDoc OpenAPI SWAGGER
+-Spring Cloud Open Feign
+-Swagger
 -Mysql etc...
 
 
